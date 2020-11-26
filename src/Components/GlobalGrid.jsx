@@ -37,7 +37,7 @@ export default function GlobalGrid() {
     async function get_Data() {
       const response = await fetch("https://api.covid19api.com/summary")
       const data = await response.json()
-      //  delete.
+      console.log(data)
       updateData(data.Global)
       console.log(data.Global)
 
@@ -49,9 +49,9 @@ export default function GlobalGrid() {
       <Grid container spacing={3}>
         {Object.keys(getDATA).map((key,ind) => {
           return (
-            <Grid  item xs={12} sm={12}>
-              <Paper key={ind} className={classes.paper} >
-                <h3 className={classes.h3}>{key.replace(/_/g,' ')}</h3>
+            <Grid key={ind} item xs={12} sm={12}>
+              <Paper  className={classes.paper} >
+                <h3 className={classes.h3}>{key.replace(/ /g,' ')}</h3>
           <h2 className={classes.h2}>{getDATA[key]}</h2>
             <h3 className={classes.text}>Number of Total Cases Covid-19</h3>
               </Paper>
