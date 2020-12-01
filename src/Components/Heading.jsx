@@ -18,6 +18,7 @@ export const Heading = () => {
     return (
         <div className={classes.root}>
         <Typography variant="h2" gutterBottom>
+       
         WORLD <span className={classes.h}> COVID-19</span> UPDATES
       </Typography>
         </div>
