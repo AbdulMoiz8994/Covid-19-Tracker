@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-
+import CountUp from 'react-chartjs-2'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,9 +27,9 @@ const useStyles = makeStyles((theme) => ({
   text: {
     fontWeight: 'lighter',
   },
-  h2: {
-    fontSize: '40px',
-  },
+  // h2: {
+  //   fontSize: '40px',
+  // },
   date: {
     fontSize: '25px',
   },
@@ -52,31 +52,31 @@ export default function GlobalGrid() {
     get_Data()
   }, [])
 
-  const loading = "Loading";
-  if (dataLoading) {
-    return (
-      <div className={classes.root}>
-        <Grid container spacing={3}>
-          {/* {Object.keys(getDATA).map((key,ind) => {
-          return ( */}
-          <Grid key={loading} item xs={12} sm={12}>
-            <Paper className={classes.paper} >
-              <h3 className={classes.h3}>{loading}</h3>
-              <h2 className={classes.h2}>{loading}</h2>
-              <Typography className={classes.date}>
-                {loading}
-              </Typography>
-              <h3 className={classes.text}>Number of Total Cases Covid-19</h3>
-            </Paper>
-          </Grid>
-          {/* ) */}
+  // const loading = "Loading...";
+  // if (dataLoading) {
+  //   return (
+  //     <div className={classes.root}>
+  //       <Grid container spacing={3}>
+  //         {/* {Object.keys(getDATA).map((key,ind) => {
+  //         return ( */}
+  //         <Grid key={loading} item xs={12} sm={12}>
+  //           <Paper className={classes.paper} >
+  //             <h3 className={classes.h3}>{loading}</h3>
+  //             <h2 className={classes.h2}>{loading}</h2>
+  //             <Typography className={classes.date}>
+  //               {loading}
+  //             </Typography>
+  //             <h3 className={classes.text}>Number of Total Cases Covid-19</h3>
+  //           </Paper>
+  //         </Grid>
+  //         {/* ) */}
 
-          {/* })} */}
+  //         {/* })} */}
 
-        </Grid>
-      </div>
-    )
-  }
+  //       </Grid>
+  //     </div>
+  //   )
+  // }
 
   return (
     <div className={classes.root}>
@@ -86,7 +86,7 @@ export default function GlobalGrid() {
             <Grid key={ind} item xs={12} sm={12}>
               <Paper className={classes.paper} >
                 <h3 className={classes.h3}>{key}</h3>
-                <h2 className={classes.h2}>{getDATA[key]}</h2>
+                <h2 className={classes.h2} >{getDATA[key]} </h2>
                 <Typography className={classes.date}>
                   {new Date().toDateString()}
                 </Typography>

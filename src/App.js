@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React from 'react'
 import './App.css';
 
 //import components
@@ -8,7 +8,7 @@ import {Heading} from './Components/Heading.jsx'
 import ListCountries from './Components/ListCountries.jsx'
 import BarCharts from './Components/BarChart.jsx'
 function App() {
-  const screenConfig=useState(0)
+
 
   return (
     <div>
@@ -21,7 +21,7 @@ function App() {
       <br/>
       <ListCountries/>
       <br/>
-      <BarCharts screenConfig={screenConfig}/>
+      <BarCharts/>
     </div>
   );
 }

@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ListCountries({}) {
-    const [anchorEl, setAnchorEl] = useState([]);
+    const [anchorEl, setAnchorEl] = useState([{}]);
   const classes = useStyles();
   useEffect(() =>{
     async function getData(){
