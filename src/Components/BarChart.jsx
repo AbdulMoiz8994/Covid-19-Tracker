@@ -1,28 +1,52 @@
+// import { Update } from '@material-ui/icons';
 import React,{useEffect,useState} from 'react'
 // import { BarChart } from '@material-ui/icons';
 import {Line} from 'react-chartjs-2';
-
-
+// import {fetchData} from '../Api.jsx'
+import {date} from '../Api.jsx'
 
 function BarCharts() {
-    const [Data, gData]=useState([])
-    console.log(Data)
+    // const [Datas, gData]=useState([{fetchData}])
+    // console.log(Datas)
 
-    
+const[Dates, Udate]=useState([])
+
+
+//  useEffect(() =>{
+//   const fetchDailyData= async() =>{
+//     gData([ await fetchData()])
+//     console.log(Datas)
+//   }
+//   fetchDailyData()
+//  },[])   
+
+
+
+useEffect(() => {
+  const fetchDailyData= async() =>{
+    Udate(await date())
+  }
+  // console.log(Dates)
+  fetchDailyData()
+},[])
+
+
 
 const lineData = (
+  // Dates.length?(
   <Line
   data={{
-  labels:  Data.map(({date}) => date),
+  labels:  Dates.map((reportDate) => reportDate),
   datasets: [
     {
-      data: Data.map(({confirmed}) => confirmed),
+      data:  Dates.map(({confirmed}) =>  confirmed),
       label: "Infected",
       borderColor: 'blue',
+      backgroundColor: 'rgba(255, 196, 0, 0.5)',
       fill: true
     },
     {
-      data: Data.map(({deaths}) => deaths),
+      data: Dates.map(({deaths}) => deaths),
       label: "Deaths",
       borderColor: 'red',
       backgroundColor: 'rgba(255,0,0, 0.5)',
