@@ -17,9 +17,9 @@
 const url ="https://covid19.mathdro.id/api"
 export const date= async() =>{
    try{
-     const {data}= await fetch(`${url}/daily`)
-   //   const jsons= await date.json()
-     console.log(data)
+     const data= await fetch(`${url}/daily`)
+     const jsons= await date.json()
+     console.log(jsons)
      const modifyState=data && data.map((Dates) =>({
       confirmed: Dates.confirmed.total,
       deaths: Dates.deaths.total,  

@@ -6,29 +6,28 @@ import {Line} from 'react-chartjs-2';
 import {date} from '../Api.jsx'
 
 function BarCharts() {
-    // const [Datas, gData]=useState([{fetchData}])
-    // console.log(Datas)
+    const [Datas, gData]=useState([{}])
+    console.log(Datas)
 
-const[Dates, Udate]=useState([])
-
-
-//  useEffect(() =>{
-//   const fetchDailyData= async() =>{
-//     gData([ await fetchData()])
-//     console.log(Datas)
-//   }
-//   fetchDailyData()
-//  },[])   
+// const[Dates, Udate]=useState([{date}])
 
 
-
-useEffect(() => {
+ useEffect(() =>{
   const fetchDailyData= async() =>{
-    Udate(await date())
+    gData([ await date()])
   }
-  // console.log(Dates)
   fetchDailyData()
-},[])
+ },[])   
+
+
+
+// useEffect(() => {
+//   const fetchDailyData= async() =>{
+//     Udate(await date())
+//   }
+//   console.log(Dates)
+//   fetchDailyData()
+// },[])
 
 
 
@@ -36,17 +35,17 @@ const lineData = (
   // Dates.length?(
   <Line
   data={{
-  labels:  Dates.map((reportDate) => reportDate),
+  labels:  Datas.map((reportDate) => reportDate),
   datasets: [
     {
-      data:  Dates.map(({confirmed}) =>  confirmed),
+      data:  Datas.map((confirmed) =>  confirmed),
       label: "Infected",
       borderColor: 'blue',
       backgroundColor: 'rgba(255, 196, 0, 0.5)',
       fill: true
     },
     {
-      data: Dates.map(({deaths}) => deaths),
+      data: Datas.map((deaths) => deaths),
       label: "Deaths",
       borderColor: 'red',
       backgroundColor: 'rgba(255,0,0, 0.5)',
